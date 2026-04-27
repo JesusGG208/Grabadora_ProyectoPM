@@ -26,13 +26,19 @@ import androidx.navigation.NavHostController
 
 
 @Composable
-fun AudioScreen(navController: NavHostController){
+fun AudioScreen(navController: NavHostController, fileName: String? = null){
     val context = LocalContext.current
     val (hasAudioPerm, requestAudioPerm) = rememberAudioPermission()
 
     var status by remember { mutableStateOf("Listo") }
 
-    val audioFile = remember { AppFiles.audioFile(context) }
+    val audioFile = remember(fileName) {
+        if (fileName != null) {
+            java.io.File(context.filesDir, fileName)
+        } else {
+            AppFiles.audioFile(context)
+        }
+    }
 
     val player = remember { SimpleAudioPlayer() }
     val recoder = remember { SimpleAudioRecorder() }

@@ -64,7 +64,7 @@ fun HomeScreen(navController: NavHostController) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                navController.navigate(Routes.AUDIO)
+                                navController.navigate("${Routes.AUDIO}?fileName=${audio.nombre}")
                             }
                     ) {
                         Column(
