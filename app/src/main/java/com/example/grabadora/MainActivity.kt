@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GrabadoraTheme {
-                Surface{
+                Surface {
                     val navController = rememberNavController()
                     AppNav(navController)
                 }
