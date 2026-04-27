@@ -37,8 +37,6 @@ fun HomeScreen(navController: NavHostController) {
             modifier = Modifier.padding(16.dp)
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
         Button(
             onClick = {
                 navController.navigate(Routes.AUDIO)

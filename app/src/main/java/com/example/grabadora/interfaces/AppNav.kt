@@ -14,6 +14,6 @@ object Routes{
 fun AppNav(navController: NavHostController) {
     NavHost(navController = navController, startDestination = com.example.grabadora.interfaces.Routes.HOME) {
         composable(com.example.grabadora.interfaces.Routes.HOME) { HomeScreen(navController) }
-        composable(com.example.grabadora.interfaces.Routes.AUDIO) { AudioScreen() }
+        composable(com.example.grabadora.interfaces.Routes.AUDIO) { AudioScreen(navController) }
     }
 }

@@ -22,10 +22,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 
 
 @Composable
-fun AudioScreen(){
+fun AudioScreen(navController: NavHostController){
     val context = LocalContext.current
     val (hasAudioPerm, requestAudioPerm) = rememberAudioPermission()
 
@@ -75,9 +76,7 @@ fun AudioScreen(){
 
             Spacer(Modifier.height(8.dp))
 
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = {
                     status = "Preparando..."
                     player.prepareFromFile(
@@ -102,6 +101,14 @@ fun AudioScreen(){
                     player.stop()
                     status = "Parado"
                 }) { Text("Stop") }
+            }
+
+            Button(
+                onClick = {
+                    navController.popBackStack()
+                }
+            ) {
+                Text("Volver")
             }
         }
     }
