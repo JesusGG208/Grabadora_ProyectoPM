@@ -33,7 +33,7 @@ fun HomeScreen(navController: NavHostController) {
     ) {
 
         Text(
-            text = "Lista de Audios",
+            text = "Grabadora de audio",
             modifier = Modifier.padding(16.dp)
         )
 
@@ -46,6 +46,11 @@ fun HomeScreen(navController: NavHostController) {
         }
 
         Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = "Lista de audios",
+            modifier = Modifier.padding(16.dp)
+        )
 
         if (audioList.isEmpty()) {
             Text("No hay audios guardados")
